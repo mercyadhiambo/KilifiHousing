@@ -33,25 +33,26 @@ private FirebaseAuth mAuth;
         regButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (validate()){
+                if (validate()) {
                     //upload data to the database
                     String user_email = userEmail.getText().toString().trim();
                     String user_password = userPassword.getText().toString().trim();
 
-                    mAuth.createUserWithEmailAndPassword(user_email,user_password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    mAuth.createUserWithEmailAndPassword(user_email, user_password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
-                            if(task.isSuccessful()){
+                            if (task.isSuccessful()) {
                                 Toast.makeText(RegistrationActivity.this, "Registration successful", Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(RegistrationActivity.this,MainActivity.class));
-                            }else{
+                                startActivity(new Intent(RegistrationActivity.this, MainActivity.class));
+                            } else {
                                 Toast.makeText(RegistrationActivity.this, "Registration successful", Toast.LENGTH_SHORT).show();
                             }
                         }
 
-                        })
+                    });
 
-                        }
+                }
+            }
                     });
 
         userLogin.setOnClickListener(new View.OnClickListener() {
