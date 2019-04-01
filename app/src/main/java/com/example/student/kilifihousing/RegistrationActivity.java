@@ -15,6 +15,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class RegistrationActivity extends AppCompatActivity {
 private EditText userName, userPassword, userEmail;
@@ -82,5 +83,20 @@ private FirebaseAuth mAuth;
             result = true;
         }
 return result;
+    }
+    private void sendEmailVerification(){
+        FirebaseUser firebaseUser = mAuth.getCurrentUser();
+        if(firebaseUser!=null){
+            firebaseUser.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                  if(task.isSuccessful()){
+                   sendEmailVerification();
+                  }else{
+                      Toast.makeText(RegistrationActivity.this,"verification mail hasn't been sent", Toast.LENGTH_SHORT).show();
+                  }
+                }
+            });
+        }
     }
 }

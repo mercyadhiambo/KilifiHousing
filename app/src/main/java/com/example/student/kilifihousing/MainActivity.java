@@ -75,8 +75,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
-                    Toast.makeText(MainActivity.this,"Login successful", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(MainActivity.this, SecondActivity.class));
+                   // Toast.makeText(MainActivity.this,"Login successful", Toast.LENGTH_SHORT).show();
+                  checkemailverification();
                 }else{
                     Toast.makeText(MainActivity.this,"Login failed", Toast.LENGTH_SHORT).show();
                     counter--;
@@ -89,6 +89,18 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+    }
+    private void checkemailverification(){
+        FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        Boolean emailflag = firebaseUser.isEmailVerified();
+
+        if(emailflag){
+            finish();
+            startActivity(new Intent(MainActivity.this, SecondActivity.class));
+        }else{
+            Toast.makeText(this, "verify your email",Toast.LENGTH_SHORT).show();
+            mAuth.signOut();
+        }
     }
 
 }
