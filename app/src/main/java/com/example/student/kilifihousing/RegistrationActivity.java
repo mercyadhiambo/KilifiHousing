@@ -22,6 +22,7 @@ private EditText userName, userPassword, userEmail;
 private Button regButton;
 private TextView userLogin;
 private FirebaseAuth mAuth;
+String name, email, password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,9 +74,9 @@ private FirebaseAuth mAuth;
     private Boolean validate(){
         Boolean result = false;
 
-        String name = userName.getText().toString();
-        String password = userPassword.getText().toString();
-        String email = userEmail.getText().toString();
+        name = userName.getText().toString();
+         password = userPassword.getText().toString();
+         email = userEmail.getText().toString();
 
         if(name.isEmpty() && password.isEmpty() && email.isEmpty()){
             Toast.makeText(this, "please enter all the details", Toast.LENGTH_SHORT).show();
@@ -98,5 +99,11 @@ return result;
                 }
             });
         }
+    }
+    private  void  sendUserData(){
+        FirebaseDatabase mDatabase = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = mDatabase.getReference(mAuth.getUid());
+        UserProfile userProfile = new UserProfile(name,email)
+        myRef.setValue()
     }
 }
