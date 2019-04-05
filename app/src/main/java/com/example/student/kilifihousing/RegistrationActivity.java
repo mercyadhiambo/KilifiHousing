@@ -16,6 +16,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class RegistrationActivity extends AppCompatActivity {
 private EditText userName, userPassword, userEmail;
@@ -66,8 +68,8 @@ String name, email, password;
     }
     private void setupUIViews(){
         userName = (EditText)findViewById(R.id.edtUserName);
-        userName = (EditText)findViewById(R.id.edtUserPassword);
-        userName = (EditText)findViewById(R.id.edtUserEmail);
+        userPassword = (EditText)findViewById(R.id.edtUserPassword);
+        userEmail = (EditText)findViewById(R.id.edtUserEmail);
         regButton = (Button)findViewById(R.id.btnRegister);
         userLogin = (TextView)findViewById(R.id.tvUserLogin);
     }
@@ -103,7 +105,7 @@ return result;
     private  void  sendUserData(){
         FirebaseDatabase mDatabase = FirebaseDatabase.getInstance();
         DatabaseReference myRef = mDatabase.getReference(mAuth.getUid());
-        UserProfile userProfile = new UserProfile(name,email)
-        myRef.setValue()
+        UserProfile userProfile = new UserProfile(name,email);
+        myRef.setValue(userProfile);
     }
 }

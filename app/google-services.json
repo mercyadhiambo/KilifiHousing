@@ -21,10 +21,6 @@
             "package_name": "com.example.student.kilifihousing",
             "certificate_hash": "078f7dbd99008bf9bdefaf72a30bb3c0c4f207dc"
           }
-        },
-        {
-          "client_id": "895952786060-8slu64ghcrcv3i87d93184pe3qvrr57e.apps.googleusercontent.com",
-          "client_type": 3
         }
       ],
       "api_key": [
@@ -33,20 +29,13 @@
         }
       ],
       "services": {
-        "analytics_service": {
-          "status": 1
-        },
         "appinvite_service": {
-          "status": 2,
           "other_platform_oauth_client": [
             {
               "client_id": "895952786060-8slu64ghcrcv3i87d93184pe3qvrr57e.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
-        },
-        "ads_service": {
-          "status": 2
         }
       }
     },
@@ -57,27 +46,20 @@
           "package_name": "house_rental.hunting"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "895952786060-8slu64ghcrcv3i87d93184pe3qvrr57e.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
           "current_key": "AIzaSyApxmTiKFAJbmlLOLoBtixR3_J3ZSk4PEQ"
         }
       ],
       "services": {
-        "analytics_service": {
-          "status": 1
-        },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
-        },
-        "ads_service": {
-          "status": 2
+          "other_platform_oauth_client": [
+            {
+              "client_id": "895952786060-8slu64ghcrcv3i87d93184pe3qvrr57e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }
